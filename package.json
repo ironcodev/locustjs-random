@@ -1,0 +1,23 @@
+{
+  "name": "locustjs-random",
+  "version": "1.0.0",
+  "description": "The aim of this utility library is to produce random sequence of characters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironcodev/locustjs-random.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ironcodev/locustjs-random/issues"
+  },
+  "homepage": "https://github.com/ironcodev/locustjs-random#readme",
+  "dependencies": {
+    "locustjs-base": "^1.0.5"
+  }
+}
