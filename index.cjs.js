@@ -138,7 +138,7 @@ var generateRandom = function generateRandom(options) {
             break;
 
           case RandomType.alpha:
-            r = Math.floor(Math.random() * 40);
+            r = Math.floor(Math.random() * 20);
 
             switch (r % 2) {
               case 0:
@@ -150,7 +150,7 @@ var generateRandom = function generateRandom(options) {
               case 1:
                 // lower
                 r = Math.floor(Math.random() * 26);
-                ch = String.fromCharCode(65 + r);
+                ch = String.fromCharCode(97 + r);
                 break;
             }
 
@@ -161,13 +161,13 @@ var generateRandom = function generateRandom(options) {
 
             switch (r % 3) {
               case 0:
-                // lower
+                // upper
                 r = Math.floor(Math.random() * 26);
                 ch = String.fromCharCode(65 + r);
                 break;
 
               case 1:
-                // upper
+                // lower
                 r = Math.floor(Math.random() * 26);
                 ch = String.fromCharCode(97 + r);
                 break;
@@ -182,7 +182,7 @@ var generateRandom = function generateRandom(options) {
             break;
 
           case RandomType.upperNum:
-            r = Math.floor(Math.random() * 40);
+            r = Math.floor(Math.random() * 20);
 
             switch (r % 2) {
               case 0:
@@ -201,7 +201,7 @@ var generateRandom = function generateRandom(options) {
             break;
 
           case RandomType.lowerNum:
-            r = Math.floor(Math.random() * 40);
+            r = Math.floor(Math.random() * 20);
 
             switch (r % 2) {
               case 0:
@@ -359,9 +359,7 @@ var Random = /*#__PURE__*/function () {
     set: function set(value) {
       if ((0, _locustjsBase.isEmpty)(value)) {
         throw "no object given to be set as current random generator.";
-      } else if (value.constructor) {
-        throw "random generator must have a constructor";
-      } else if (!(0, _locustjsBase.isSubClassOf)(value.constructor, RandomGeneratorBase)) {
+      } else if (!_instanceof(value, RandomGeneratorBase)) {
         throw "random generator must be a subclass of RandomGeneratorBase";
       }
 

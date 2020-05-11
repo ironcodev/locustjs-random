@@ -1,6 +1,6 @@
 {
   "name": "locustjs-random",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The aim of this utility library is to produce random sequence of characters.",
   "main": "index.cjs.js",
   "module": "index.esm.js",

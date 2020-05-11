@@ -118,7 +118,7 @@ const generateRandom = (options) => {
 						ch = String.fromCharCode(48 + r);
 						break;
 					case RandomType.alpha:
-						r = Math.floor(Math.random() * 40);
+						r = Math.floor(Math.random() * 20);
 						
 						switch (r % 2) {
 							case 0:	// upper
@@ -127,7 +127,7 @@ const generateRandom = (options) => {
 								break;
 							case 1:	// lower
 								r = Math.floor(Math.random() * 26);
-								ch = String.fromCharCode(65 + r);
+								ch = String.fromCharCode(97 + r);
 								break;
 						}
 						break;
@@ -135,11 +135,11 @@ const generateRandom = (options) => {
 						r = Math.floor(Math.random() * 30);
 						
 						switch (r % 3) {
-							case 0:	// lower
+							case 0:	// upper
 								r = Math.floor(Math.random() * 26);
 								ch = String.fromCharCode(65 + r);
 								break;
-							case 1:	// upper
+							case 1:	// lower
 								r = Math.floor(Math.random() * 26);
 								ch = String.fromCharCode(97 + r);
 								break;
@@ -150,7 +150,7 @@ const generateRandom = (options) => {
 						}
 						break;
 					case RandomType.upperNum:
-						r = Math.floor(Math.random() * 40);
+						r = Math.floor(Math.random() * 20);
 						
 						switch (r % 2) {
 							case 0:	// upper
@@ -164,7 +164,7 @@ const generateRandom = (options) => {
 						}
 						break;
 					case RandomType.lowerNum:
-						r = Math.floor(Math.random() * 40);
+						r = Math.floor(Math.random() * 20);
 						
 						switch (r % 2) {
 							case 0:	// lower
@@ -262,9 +262,7 @@ class Random {
     static set Instance(value) {
         if (isEmpty(value)) {
 			throw `no object given to be set as current random generator.`
-		} else if (value.constructor) {
-			throw `random generator must have a constructor`
-		} else if (!isSubClassOf(value.constructor, RandomGeneratorBase)) {
+		} else if (!(value instanceof RandomGeneratorBase)) {
             throw `random generator must be a subclass of RandomGeneratorBase`
         }
 
