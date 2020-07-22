@@ -38,9 +38,10 @@ generation options are as follows:
 
 | name   |      description      |  default |
 |----------|:-------------:|------:|
+| type | num, alpha, alphaNum, upper, lower, upperNum, lowerNum, custom. accepted values: string, number or RandomType enum values.  | 'num' |
 | minLen |  minimum sequence length. Used when generating a random sequence of characters with random length between minLen and maxLen | 5 |
 | maxLen |    exact sequence length. Result will be exactly n characters.   | 7 |
-| type | num, alpha, alphaNum, upper, lower, upperNum, lowerNum, custom. accepted values: string, number or RandomType enum values.  | 'num' |
+| len | generating random strings with specified length  | |
 | from | starting random number. Used when generating random numbers. | |
 | to | ending random number. Used when generating random numbers. |     |
 | chars | List of characters to be used to produce random characters. | [ ]  |
