@@ -3,7 +3,7 @@ The aim of this library is helping in producing random sequence of characters.
 
 The library contains an abstract RandomGeneratorBase class with a default RandomGeneratorDefault implementation.
 
-The base class has a generate() function that is used to generate random string. This method receives a generation option argument and generates the random sequence based on the given options.
+The base class has a generate() function that is used to generate random strings. This method receives a generation option argument and generates the random sequence based on the given options.
 
 Here is an example:
 
@@ -22,7 +22,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 Result:
-
+```
 f0ivY4eJwH
 nzLkl5s80k
 9G5RjUK96j
@@ -33,7 +33,7 @@ oENcb7w85E
 P72zCw361S
 50tJcr1m9c
 N262uQBZJ9
-
+```
 generation options are as follows:
 
 | name   |      description      |  default |
