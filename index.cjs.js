@@ -3,9 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.generateRandom = exports.Random = exports.RandomGeneratorDefault = exports.RandomGeneratorBase = exports.RandomType = void 0;
+exports.generateRandom = exports.RandomGeneratorDefault = exports.RandomGeneratorBase = exports.RandomType = exports.default = void 0;
 
 var _locustjsBase = require("locustjs-base");
+
+var _locustjsException = require("locustjs-exception");
+
+var _locustjsEnum = _interopRequireDefault(require("locustjs-enum"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -13,7 +19,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -31,7 +37,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var RandomType = _locustjsBase.Enum.define({
+var RandomType = _locustjsEnum.default.define({
   num: 0,
   // numeric
   alpha: 1,
@@ -272,20 +278,18 @@ var RandomGeneratorBase = /*#__PURE__*/function () {
   function RandomGeneratorBase() {
     _classCallCheck(this, RandomGeneratorBase);
 
-    if (this.constructor === RandomGeneratorBase) {
-      throw "RandomGeneratorBase is abstract. You cannot instantiate from it.";
-    }
+    (0, _locustjsException.throwIfInstantiateAbstract)(RandomGeneratorBase, this);
   }
 
   _createClass(RandomGeneratorBase, [{
     key: "generate",
     value: function generate(options) {
-      throw "".concat(this.constructor.name, ".generate() is not implemented");
+      (0, _locustjsException.throwNotImplementedException)("".concat(this.constructor.name, ".generate()"));
     }
   }, {
     key: "next",
     value: function next(from, to) {
-      throw "".concat(this.constructor.name, ".next() is not implemented");
+      (0, _locustjsException.throwNotImplementedException)("".concat(this.constructor.name, ".next()"));
     }
   }]);
 
@@ -370,4 +374,5 @@ var Random = /*#__PURE__*/function () {
   return Random;
 }();
 
-exports.Random = Random;
+var _default = Random;
+exports.default = _default;

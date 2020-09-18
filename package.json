@@ -1,6 +1,6 @@
 {
   "name": "locustjs-random",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The aim of this utility library is to produce random sequence of characters.",
   "main": "index.cjs.js",
   "module": "index.esm.js",
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/ironcodev/locustjs-random#readme",
   "dependencies": {
-    "locustjs-base": "^1.0.5"
+    "locustjs-base": "^1.0.5",
+    "locustjs-enum": "^1.0.1",
+    "locustjs-exception": "^1.0.1"
   }
 }

@@ -1,4 +1,6 @@
-import { Enum, isEmpty, isSomeObject, isNumber, isSubClassOf } from 'locustjs-base';
+import { isEmpty, isSomeObject, isNumber, isSubClassOf } from 'locustjs-base';
+import { throwIfInstantiateAbstract, throwNotImplementedException } from 'locustjs-exception';
+import Enum from 'locustjs-enum';
 
 const RandomType = Enum.define({
     num		: 0,	// numeric
@@ -223,15 +225,13 @@ const generateRandom = (options) => {
 
 class RandomGeneratorBase {
 	constructor() {
-		if (this.constructor === RandomGeneratorBase) {
-            throw `RandomGeneratorBase is abstract. You cannot instantiate from it.`
-        }
+		throwIfInstantiateAbstract(RandomGeneratorBase, this);
 	}
 	generate(options) {
-		throw `${this.constructor.name}.generate() is not implemented`
+		throwNotImplementedException(`${this.constructor.name}.generate()`);
 	}
 	next(from, to) {
-		throw `${this.constructor.name}.next() is not implemented`
+		throwNotImplementedException(`${this.constructor.name}.next()`);
 	}
 }
 
@@ -276,10 +276,10 @@ class Random {
 	}
 }
 
+export default Random;
 export {
     RandomType,
 	RandomGeneratorBase,
 	RandomGeneratorDefault,
-	Random,
     generateRandom
 }
